@@ -12,9 +12,14 @@ namespace Architecture
 
         public int coins => this.repository.score;
 
-        public BankInteractor(BankRepository repository)
+        public override void OnCraete()
         {
-            this.repository = repository;
+            base.OnCraete();
+            this.repository = Game.GetRepository<BankRepository>();
+        }
+        public override void Initialize()
+        {
+            Bank.Initialize(this);
         }
 
         public bool IsEnougthCoins(int value)
@@ -25,6 +30,12 @@ namespace Architecture
         public void AddCoins(object sender, int value)
         {
             this.repository.score += value;
+            this.repository.Save();
+        }
+
+        public void SpendCoins(object sender, int value)
+        {
+            this.repository.score -= value;
             this.repository.Save();
         }
 
