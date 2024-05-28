@@ -18,7 +18,7 @@ namespace SceneLogic
         {
             var interactorsMap = new Dictionary<Type, Interactor>();
 
-            this.CreateInteractor<BankInteractor>(interactorsMap);
+            this.CreateInteractor<StatsInteractor>(interactorsMap);
             this.CreateInteractor<PlayerInteractor>(interactorsMap);
 
             return interactorsMap;
@@ -29,7 +29,7 @@ namespace SceneLogic
         {
             var repositoriesMap = new Dictionary<Type, Repository>();
             
-            this.CreateRepository<BankRepository>(repositoriesMap);
+            this.CreateRepository<StatsRepository>(repositoriesMap);
 
             return repositoriesMap;
         }

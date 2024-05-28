@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-namespace Gameplay
+namespace Gameplay.Projectaile.Pool
 {
     public class ObjectPool<T> where T : MonoBehaviour
     {

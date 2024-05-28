@@ -4,35 +4,26 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-namespace Gameplay
+namespace Gameplay.Projectaile
 {
-
-    public class MainAirplaneProjectaile : MonoBehaviour
+    public class MainAirplaneProjectaile : ProjectaileBase
     {
-
-        [SerializeField] private float speed;
-        [SerializeField] private float lifeTime;
-
-        private void OnEnable()
-        {
-            StartCoroutine(LifeTime());
-        }
-
-        private IEnumerator LifeTime()
-        {
-            yield return new WaitForSecondsRealtime(lifeTime);
-
-            this.gameObject.SetActive(false);
-        }
-
         private void Update()
         {
             Move();
         }
 
-        private void Move()
+        public override void Move()
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * this.GetCurrentSpeed() * Time.deltaTime);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out IDestroyed destroyed))
+            {
+                destroyed.GetDamage(this);
+            }
         }
     }
 

@@ -18,6 +18,11 @@ public static class Game
         Coroutines.StartRoutine(InitializeGameRoutine());
     }
 
+    public static void EndGame()
+    {
+        Stats.CompareScore();
+    }
+
     private static IEnumerator InitializeGameRoutine()
     {
         sceneManager.InitScenesMap();

@@ -3,7 +3,7 @@ using System;
 
 namespace Architecture
 {
-    public static class Bank
+    public static class Stats
     {
 
         public static event Action OnBankInializeEvent;
@@ -13,38 +13,33 @@ namespace Architecture
             get
             {
                 CheckClass();
-                return bankInteractor.coins;
+                return statsInteractor.score;
             }
         }
         public static bool isInitialized { get; private set; }
 
-        private static BankInteractor bankInteractor;
+        private static StatsInteractor statsInteractor;
 
-        public static void Initialize (BankInteractor interactor)
+        public static void Initialize (StatsInteractor interactor)
         {
-            bankInteractor = interactor;
+            statsInteractor = interactor;
             isInitialized = true;
 
             OnBankInializeEvent?.Invoke();
         }
 
-        public static bool IsEnougthCoins(int value)
+        public static void CompareScore()
         {
             CheckClass();
-            return bankInteractor.IsEnougthCoins(value);
+            statsInteractor.CompareScore();
         }
 
         public static void AddCoins(object sender, int value)
         {
             CheckClass();
-            bankInteractor.AddCoins(sender, value);
+            statsInteractor.AddScore(sender, value);
         }
 
-        public static void SpendCoins(object sender, int value)
-        {
-            CheckClass();
-            bankInteractor.SpendCoins(sender, value);
-        }
 
         private static void CheckClass()
         {

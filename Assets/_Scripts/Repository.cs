@@ -9,7 +9,7 @@ namespace Architecture
 
         public virtual void OnStart() { }
 
-        public abstract void Save();
+        public abstract void SaveScore();
     }
 
 }

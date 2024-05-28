@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ArchTester : MonoBehaviour
 {
-    private Player player;
+    private MainAirplane player;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class ArchTester : MonoBehaviour
 
     private void Update()
     {
-        if (!Bank.isInitialized)
+        if (!Stats.isInitialized)
         {
             Debug.Log("Bank not Initialize yet in Update");
             return;
@@ -34,16 +34,5 @@ public class ArchTester : MonoBehaviour
 
         Debug.Log($"Player position: {this.player.transform.position}");
       
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Bank.AddCoins(this, 5);
-            Debug.Log($"Coins added (5), {Bank.coins}");
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Bank.SpendCoins(this, 5);
-            Debug.Log($"Coins spended (5), {Bank.coins}");
-        }
     }
 }
