@@ -17,6 +17,11 @@ namespace Gameplay.Enemis
             Destroy(this.gameObject);
         }
 
+        public void DestroyWitoutStats()
+        {
+            Destroy(this.gameObject);
+        }
+
         public void GetDamage(MainAirplaneProjectaile projectaile)
         {
             this.health -= projectaile.GetDamageScore();

@@ -36,6 +36,14 @@ namespace Gameplay.Projectaile
             return speed;
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out MainAirplane mainAirplane))
+            {
+                mainAirplane.TakingDamage(damage);
+            }
+        }
+
     }
 
 }

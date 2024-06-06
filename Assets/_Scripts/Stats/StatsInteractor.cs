@@ -25,6 +25,7 @@ namespace Architecture
             Stats.Initialize(this);
         }
 
+
         public void CompareScore()
         {
             if(this.score > this.bestScore)

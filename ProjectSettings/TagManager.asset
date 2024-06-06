@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FrendliProjectaile
   - Enemis
+  - UiLayerHUD
+  - RadPlaneContainer
   layers:
   - Default
   - TransparentFX

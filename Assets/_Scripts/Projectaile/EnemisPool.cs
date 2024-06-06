@@ -10,38 +10,43 @@ namespace Gameplay.Projectaile.Pool
         [SerializeField] private int poolCount = 15;
         [SerializeField] private bool autoExpand = true;
         [SerializeField] private ProjectaileBase projectailePrefab;
+        [SerializeReference] private Transform container;
 
 
-        private ObjectPool<ProjectaileBase> pool;
+        public ObjectPool<ProjectaileBase> pool;
 
 
-        private void Start()
+        private void OnEnable()
         {
-            this.pool = new ObjectPool<ProjectaileBase>(this.projectailePrefab, this.poolCount, this.transform);
+            this.pool = new ObjectPool<ProjectaileBase>(this.projectailePrefab, this.poolCount, this.container);
             this.pool.autoExpand = autoExpand;
-            StartCoroutine(Shot());
 
         }
 
-        private void OnDestroy()
-        {
-            StopAllCoroutines();
-        }
+        //private void OnDestroy()
+        //{
+        //    StopAllCoroutines();
+        //}
 
-        private void CreateProjectaile()
-        {
-            var projectaile = pool.GetFreeElement();
-            projectaile.transform.position = new Vector3(this.transform.position.x + 0.2f, this.transform.position.y + 0.2f);
-            projectaile.gameObject.SetActive(true);
-        }
+        //private void CreateProjectaile()
+        //{
+        //    var projectaile = pool.GetFreeElement();
+        //    projectaile.transform.position = new Vector3(this.transform.position.x, this.transform.position.y);
+        //    projectaile.gameObject.SetActive(true);
+        //}
 
-        private IEnumerator Shot()
+        //private IEnumerator Shot()
+        //{
+        //    while (true)
+        //    {
+        //        yield return new WaitForSecondsRealtime(3);
+        //        CreateProjectaile();
+        //    }
+        //}
+
+        public ObjectPool<ProjectaileBase> GetCurrentPool()
         {
-            while (true)
-            {
-                yield return new WaitForSecondsRealtime(3);
-                CreateProjectaile();
-            }
+            return pool;
         }
 
 

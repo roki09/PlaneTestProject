@@ -8,9 +8,22 @@ namespace Gameplay.Enemis
 {
     public class RedPlane : EnemisBase, IDestroyed
     {
+        private void Update()
+        {
+            Move();
+        }
+        private void Move()
+        {
+            transform.Translate(Vector3.left * 1 * Time.deltaTime);
+        }
         public void DestroyEnemis()
         {
             ThrowStats();
+            Destroy(this.gameObject);
+        }
+
+        public void DestroyWitoutStats()
+        {
             Destroy(this.gameObject);
         }
 

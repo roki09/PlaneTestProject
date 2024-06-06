@@ -26,11 +26,4 @@ public class CruiserProjectaile : ProjectaileBase
         transform.Translate(-planePosition * this.GetCurrentSpeed() * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            mainAirplane.TakingDamage(this.GetDamageScore());
-        }
-    }
 }

@@ -21,21 +21,17 @@ namespace Gameplay.Projectaile.Pool
         {
             this.pool = new ObjectPool<ProjectaileBase>(this.projectailePrefab, this.poolCount, this.transform);
             this.pool.autoExpand = autoExpand;
+            StartCoroutine(Timer());
         }
 
 
-        private void Update()
+        private void OnDisable()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                this.CreateProjectaile();
-            }
+            StopAllCoroutines();
         }
 
         private void CreateProjectaile()
         {
-            StartCoroutine(Timer());
             var projectaile = pool.GetFreeElement();
             projectaile.transform.position = player.transform.position;
             projectaile.gameObject.SetActive(true);
@@ -43,7 +39,11 @@ namespace Gameplay.Projectaile.Pool
 
         private IEnumerator Timer()
         {
-            yield return new WaitForSecondsRealtime(0.5f);
+            while (true)
+            {
+                yield return new WaitForSecondsRealtime(1);
+                CreateProjectaile();
+            }
         }
 
     }

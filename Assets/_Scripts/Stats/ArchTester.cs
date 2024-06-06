@@ -3,10 +3,12 @@ using SceneLogic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArchTester : MonoBehaviour
 {
-    private MainAirplane player;
+    public MainAirplane player;
+    [SerializeField] private Canvas canvas;
 
     private void Start()
     {
@@ -34,5 +36,20 @@ public class ArchTester : MonoBehaviour
 
         Debug.Log($"Player position: {this.player.transform.position}");
       
+    }
+
+    public void ReloadGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void EndGame()
+    {
+        canvas.gameObject.SetActive(true);
     }
 }

@@ -12,4 +12,5 @@ public interface IDestroyed
     void ThrowStats();
 
     void DestroyEnemis();
+    void DestroyWitoutStats();
 }

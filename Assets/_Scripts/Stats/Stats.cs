@@ -6,9 +6,9 @@ namespace Architecture
     public static class Stats
     {
 
-        public static event Action OnBankInializeEvent;
+        public static event Action OnStatsInializeEvent;
 
-        public static int coins
+        public static int score
         {
             get
             {
@@ -25,7 +25,7 @@ namespace Architecture
             statsInteractor = interactor;
             isInitialized = true;
 
-            OnBankInializeEvent?.Invoke();
+            OnStatsInializeEvent?.Invoke();
         }
 
         public static void CompareScore()

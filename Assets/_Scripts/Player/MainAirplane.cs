@@ -5,17 +5,27 @@ using UnityEngine;
 
 public class MainAirplane : MonoBehaviour
 {
+    [SerializeField] private GameObject[] born;
+    [SerializeField] private int Health;
+    private ArchTester tester;
+
+    private void OnEnable()
+    {
+        tester = FindAnyObjectByType<ArchTester>();
+    }
     public int health
     {
         get
         {
-            return this.health;
+            return Health;
         }
         private set
-            => SwitchHpState();
+        {
+            Health = value;
+            SwitchHpState();
+            
+        }
     }
-
-    [SerializeField] private GameObject[] born;
 
     public void TakingDamage(int damage)
     {
@@ -24,21 +34,26 @@ public class MainAirplane : MonoBehaviour
 
     private void SwitchHpState()
     {
-        if (this.health == 3)
+        Debug.Log("HP was switsched");
+        if (this.Health == 3)
         {
             foreach (var item in born)
             {
                 item.gameObject.SetActive(false);
             }
-
         }
-        if (this.health == 2)
+        else if (this.Health == 2)
         {
             born[0].gameObject.SetActive(true);
         }
-        if (this.health == 1)
+        else if (this.Health == 1)
         {
             born[1].gameObject.SetActive(true);
+        }
+        else if(this.Health == 0)
+        {
+            tester.EndGame();
+            Destroy(this.gameObject);
         }
     }
 }
