@@ -11,12 +11,12 @@ namespace Architecture
         private const string TOPSCORE = "TOPSTATS_KEY";
         public int score { get; set; }
         public int bestScore { get; set; }
-        public Dictionary<string, int> killsStats { get; set; }
+        public List<EnemyStats> enemyStats { get; set; }
+
         public override void Initialize()
         {
             this.score = PlayerPrefs.GetInt(KEY, 0);
             this.bestScore = PlayerPrefs.GetInt(TOPSCORE, 0);
-            this.killsStats = new Dictionary<string, int>();
         }
 
 

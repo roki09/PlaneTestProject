@@ -7,6 +7,7 @@ public abstract class EnemisBase : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected int bounty;
     [SerializeField] protected string enemisName;
+    [SerializeField] protected EnemyStats enemyStats;
 
 
 }

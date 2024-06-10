@@ -42,6 +42,7 @@ namespace Gameplay.Enemis
         public void ThrowStats()
         {
             Stats.AddCoins(this, bounty);
+            Stats.AddEnemyStats(this, enemyStats);
             Debug.Log("Stats was throwing");
         }
     }

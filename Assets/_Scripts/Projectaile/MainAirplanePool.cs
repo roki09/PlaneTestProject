@@ -25,7 +25,7 @@ namespace Gameplay.Projectaile.Pool
         }
 
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             StopAllCoroutines();
         }

@@ -23,6 +23,7 @@ public static class Game
 
     }
 
+
     public static void EndGame()
     {
         Stats.CompareScore();

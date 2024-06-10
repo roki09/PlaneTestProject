@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7884470751212345732}
-  - component: {fileID: 1550588301765654429}
   - component: {fileID: 6980799932484274476}
   - component: {fileID: 5522001409427829712}
   - component: {fileID: 929143096380739744}
-  - component: {fileID: 8179073663965085114}
+  - component: {fileID: 1550588301765654429}
+  - component: {fileID: 4405147192052376959}
+  - component: {fileID: 8961279890509430084}
   m_Layer: 0
   m_Name: RedPlane
   m_TagString: Untagged
@@ -36,21 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1550588301765654429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3083874327853936323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6dfc8f902381b4ba031495d2441aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  bounty: 1
-  enemisName: RedPlane
 --- !u!212 &6980799932484274476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +136,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 2}
   m_EdgeRadius: 0
---- !u!114 &8179073663965085114
+--- !u!114 &1550588301765654429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +145,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 3083874327853936323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307f16418962f7d4b922faf8944fbabf, type: 3}
+  m_Script: {fileID: 11500000, guid: ab6dfc8f902381b4ba031495d2441aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPool: {fileID: 5382043139805432289, guid: 886870c1242519f40b2e9a9e1aa6d9d2, type: 3}
+  health: 3
+  bounty: 1
+  enemisName: RedPlane
+  enemyStats: {fileID: 8961279890509430084}
+--- !u!114 &4405147192052376959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083874327853936323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfbb49e503bff34e80fbc52f8e491aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolCount: 15
+  autoExpand: 1
+  projectailePrefab: {fileID: 8495489389042565357, guid: 43a07fb4e31c7c84b8b8397c6a02f94f, type: 3}
+--- !u!114 &8961279890509430084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083874327853936323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbee2d4bb723aa4caa8ab119857c508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: RedAirplane
+  value: 1

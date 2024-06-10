@@ -1,5 +1,6 @@
 
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 namespace Architecture
 {
@@ -14,6 +15,15 @@ namespace Architecture
             {
                 CheckClass();
                 return statsInteractor.score;
+            }
+        }
+
+        public static int bestScore
+        {
+            get
+            {
+                CheckClass();
+                return statsInteractor.bestScore;
             }
         }
         public static bool isInitialized { get; private set; }
@@ -38,6 +48,12 @@ namespace Architecture
         {
             CheckClass();
             statsInteractor.AddScore(sender, value);
+        }
+
+        public static void AddEnemyStats(object sender, EnemyStats stats)
+        {
+            CheckClass();
+            statsInteractor.AddEnemyStats(sender, stats);
         }
 
 

@@ -1,3 +1,4 @@
+using Architecture.SaveSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Architecture
         public int score => this.repository.score;
         public int bestScore => this.repository.bestScore;
 
-        public Dictionary<string, int> killsStats => this.repository.killsStats;
+        public List<EnemyStats> enemyStats => this.repository.enemyStats;
 
         public override void OnCraete()
         {
@@ -28,7 +29,7 @@ namespace Architecture
 
         public void CompareScore()
         {
-            if(this.score > this.bestScore)
+            if (this.score > this.bestScore)
             {
                 repository.SaveBestScore(this.score);
             }
@@ -39,14 +40,52 @@ namespace Architecture
             this.repository.score += value;
         }
 
-        public void AddEnemyStats(object sender, string name)
+
+        public void AddEnemyStats(object sender, EnemyStats exampleStats)
         {
-            if (killsStats.ContainsKey(name))
-                killsStats[name]++;
-            else
-                killsStats.Add(name, 1);
+            if(enemyStats == null)
+            {
+                enemyStats.Add(exampleStats);
+                return;
+            }
+
+            foreach (var stats in enemyStats)
+            {
+                if (stats.name == exampleStats.name)
+                {
+                    stats.value++;
+                    return;
+                }       
+            }
+
+            enemyStats.Add(exampleStats);
         }
 
+        // make a separate script
+        //private const string saveKey = "mainSave";
+
+        //public void Save()
+        //{
+        //    SaveManager.Save(saveKey, GetSaveSnapShot());
+        //}
+
+        //public void Load()
+        //{
+        //    var data = SaveManager.Load<SaveSystem.PlayerPrefsData>(saveKey);
+
+        //    this.enemyStats = data.enemyStats;
+        //    this.bestScore = data.bestScore;
+        //}
+
+        //private SaveSystem.PlayerPrefsData GetSaveSnapShot()
+        //{
+        //    var data = new SaveSystem.PlayerPrefsData()
+        //    {
+        //        enemyStats = this.enemyStats,
+        //        bestScore = this.bestScore,
+        //    };
+        //    return data;
+        //}
 
     }
 
