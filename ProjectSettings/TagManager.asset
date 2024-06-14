@@ -8,6 +8,7 @@ TagManager:
   - Enemis
   - UiLayerHUD
   - RadPlaneContainer
+  - Edge
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ namespace Gameplay.Projectaile
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out IDestroyed destroyed))
+            if (collision.TryGetComponent(out EnemisBase destroyed))
             {
                 destroyed.GetDamage(this);
             }

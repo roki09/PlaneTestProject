@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 namespace Architecture
@@ -26,11 +27,20 @@ namespace Architecture
                 return statsInteractor.bestScore;
             }
         }
+
+        public static List<EnemyStats> enemyStats
+        {
+            get
+            {
+                CheckClass();
+                return statsInteractor.enemyStats;
+            }
+        }
         public static bool isInitialized { get; private set; }
 
         private static StatsInteractor statsInteractor;
 
-        public static void Initialize (StatsInteractor interactor)
+        public static void Initialize(StatsInteractor interactor)
         {
             statsInteractor = interactor;
             isInitialized = true;
@@ -56,10 +66,16 @@ namespace Architecture
             statsInteractor.AddEnemyStats(sender, stats);
         }
 
+        public static void AddEnemyStatsOnLoad(List<EnemyStats> enemyStats)
+        {
+            CheckClass();
+            statsInteractor.AddEnemyStatsOnLoad(enemyStats);
+        }
+
 
         private static void CheckClass()
         {
-            if(!isInitialized)
+            if (!isInitialized)
             {
                 throw new System.Exception("Bank is not initialize yet");
             }

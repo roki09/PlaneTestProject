@@ -6,13 +6,15 @@ using UnityEngine;
 public class CruiserProjectaile : ProjectaileBase
 {
     [SerializeField] private MainAirplane mainAirplane;
+    private float[] airplanePosition = new float[2];
 
-    private Vector3 planePosition;
 
     private void OnEnable()
     {
         mainAirplane = FindAnyObjectByType<MainAirplane>();
-        planePosition = mainAirplane.transform.position;
+        airplanePosition[0] = mainAirplane.gameObject.transform.position.x;
+        airplanePosition[1] = mainAirplane.gameObject.transform.position.y;
+
     }
 
     private void Update()
@@ -23,7 +25,7 @@ public class CruiserProjectaile : ProjectaileBase
 
     public override void Move()
     {
-        transform.Translate(-planePosition * this.GetCurrentSpeed() * Time.deltaTime);
+        transform.Translate(new Vector2(airplanePosition[0], airplanePosition[1]) * this.GetCurrentSpeed() * Time.deltaTime);
     }
 
 }

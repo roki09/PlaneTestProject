@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1932797324501485172}
-  - component: {fileID: 1932797324501485179}
   m_Layer: 0
   m_Name: Cruiser
   m_TagString: Untagged
@@ -25,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932797324501485178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.45, y: -2.24, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33,21 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1932797324501485179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932797324501485178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfbb49e503bff34e80fbc52f8e491aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolCount: 15
-  autoExpand: 1
-  projectailePrefab: {fileID: 6887224599902331791, guid: 231657894099b874aa56019c2db4d12d, type: 3}
 --- !u!1 &1932797324619554442
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +144,8 @@ GameObject:
   - component: {fileID: 1932797325353032396}
   - component: {fileID: 1932797325353032403}
   - component: {fileID: 1932797325353032402}
+  - component: {fileID: 390762110054842240}
+  - component: {fileID: 1102910164349696472}
   m_Layer: 0
   m_Name: Cruiser
   m_TagString: Enemis
@@ -296,4 +282,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   bounty: 1
-  enemisName: Cruiser
+  enemyStats: {fileID: 390762110054842240}
+--- !u!114 &390762110054842240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932797325353032407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbee2d4bb723aa4caa8ab119857c508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Cruiser
+  value: 1
+--- !u!114 &1102910164349696472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932797325353032407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfbb49e503bff34e80fbc52f8e491aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolCount: 15
+  autoExpand: 1
+  projectailePrefab: {fileID: 6887224599902331791, guid: 231657894099b874aa56019c2db4d12d, type: 3}

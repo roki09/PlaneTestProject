@@ -61,31 +61,14 @@ namespace Architecture
             enemyStats.Add(exampleStats);
         }
 
-        // make a separate script
-        //private const string saveKey = "mainSave";
+        public void AddEnemyStatsOnLoad(List<EnemyStats> enemyStatsExample)
+        {
+            foreach (var stats in enemyStatsExample)
+            {
+                enemyStats.Add(stats);
+            }
+        }
 
-        //public void Save()
-        //{
-        //    SaveManager.Save(saveKey, GetSaveSnapShot());
-        //}
-
-        //public void Load()
-        //{
-        //    var data = SaveManager.Load<SaveSystem.PlayerPrefsData>(saveKey);
-
-        //    this.enemyStats = data.enemyStats;
-        //    this.bestScore = data.bestScore;
-        //}
-
-        //private SaveSystem.PlayerPrefsData GetSaveSnapShot()
-        //{
-        //    var data = new SaveSystem.PlayerPrefsData()
-        //    {
-        //        enemyStats = this.enemyStats,
-        //        bestScore = this.bestScore,
-        //    };
-        //    return data;
-        //}
 
     }
 

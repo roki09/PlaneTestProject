@@ -10,14 +10,16 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] private GameObject[] groundSpawnArray;
 
     private string[] flyEnemis = { "RedPlane" };
+    private string[] waterEnemis = {"Cruiser" };
 
     private string[] flyEnemisPath = {"Enemis", "Fly" };
-    private string[] waterEnemisPath = { "Resources", "Enemis", "Water" };
+    private string[] waterEnemisPath = { "Enemis", "Water" };
     private string[] groundedEnemisPath = { "Resources", "Enemis", "Grounded" };
 
     private void OnEnable()
     {
         StartCoroutine(SpawnTimer());
+        StartCoroutine(SpawnWater());
     }
 
     private void OnDisable()
@@ -33,6 +35,15 @@ public class SpawnSystem : MonoBehaviour
             SpawnAirEnemis();
         }
     }
+
+    private IEnumerator SpawnWater()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+            SpawnWaterEnemis();
+        }
+    }
     private void SpawnAirEnemis()
     {
         var thosepath = Path.Combine(flyEnemisPath);
@@ -40,4 +51,14 @@ public class SpawnSystem : MonoBehaviour
         var go = Resources.Load(path);
         Instantiate(go, airSpawnArray[Random.Range(0, 6)].transform);
     }
+    private void SpawnWaterEnemis()
+    {
+        var thosepath = Path.Combine(waterEnemisPath);
+        var path = Path.Combine(thosepath, waterEnemis[0]);
+        var go = Resources.Load(path);
+        Instantiate(go, waterSpawnArray[0].transform);
+    }
+
+
+
 }

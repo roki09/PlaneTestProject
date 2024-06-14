@@ -8,38 +8,16 @@ using UnityEngine;
 
 namespace Gameplay.Enemis
 {
-    public class Cruiser : EnemisBase, IDestroyed
+    public class Cruiser : EnemisBase
     {
-
-        public void DestroyEnemis()
+        private void Update()
         {
-            ThrowStats();
-            Destroy(this.gameObject);
+            Move();
         }
-
-        public void DestroyWitoutStats()
+        private void Move()
         {
-            Destroy(this.gameObject);
+            transform.Translate(Vector3.left * 1 * Time.deltaTime);
         }
-
-        public void GetDamage(MainAirplaneProjectaile projectaile)
-        {
-            this.health -= projectaile.GetDamageScore();
-            projectaile.gameObject.SetActive(false);
-            Debug.Log("Damage was taken");
-
-            if (this.health <= 0)
-            {
-                DestroyEnemis();
-            }
-        }
-
-        public void ThrowStats()
-        {
-            Stats.AddCoins(this, bounty);
-            Debug.Log("Stats was throwing");
-        }
-
     }
 
 }

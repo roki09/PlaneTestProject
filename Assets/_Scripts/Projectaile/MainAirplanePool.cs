@@ -33,7 +33,8 @@ namespace Gameplay.Projectaile.Pool
         private void CreateProjectaile()
         {
             var projectaile = pool.GetFreeElement();
-            projectaile.transform.position = player.transform.position;
+            if (player != null)
+                projectaile.transform.position = player.transform.position;
             projectaile.gameObject.SetActive(true);
         }
 
