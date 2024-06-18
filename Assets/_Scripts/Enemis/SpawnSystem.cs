@@ -10,7 +10,7 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] private GameObject[] groundSpawnArray;
 
     private string[] flyEnemis = { "RedPlane" };
-    private string[] waterEnemis = {"Cruiser" };
+    private string[] waterEnemis = {"Cruiser", "Aircraft Carrier" };
 
     private string[] flyEnemisPath = {"Enemis", "Fly" };
     private string[] waterEnemisPath = { "Enemis", "Water" };
@@ -40,7 +40,7 @@ public class SpawnSystem : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
             SpawnWaterEnemis();
         }
     }
@@ -54,7 +54,7 @@ public class SpawnSystem : MonoBehaviour
     private void SpawnWaterEnemis()
     {
         var thosepath = Path.Combine(waterEnemisPath);
-        var path = Path.Combine(thosepath, waterEnemis[0]);
+        var path = Path.Combine(thosepath, waterEnemis[Random.Range(0, 2)]);
         var go = Resources.Load(path);
         Instantiate(go, waterSpawnArray[0].transform);
     }

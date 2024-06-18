@@ -17,10 +17,10 @@ namespace Architecture.SaveSystem
             if (Instance = null)
             {
                 Instance = this;
-                //DontDestroyOnLoad(this);
+                DontDestroyOnLoad(this);
                 return;
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         private const string saveKey = "mainSave";
@@ -34,7 +34,8 @@ namespace Architecture.SaveSystem
         {
             var data = SaveManager.Load<SaveSystem.PlayerPrefsData>(saveKey);
 
-            Stats.AddEnemyStatsOnLoad(data.enemyStats);
+            if (data != null)
+                Stats.AddEnemyStatsOnLoad(data.enemyStats);
         }
 
         private SaveSystem.PlayerPrefsData GetSaveSnapShot()

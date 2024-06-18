@@ -46,6 +46,9 @@ namespace Architecture
             isInitialized = true;
 
             OnStatsInializeEvent?.Invoke();
+
+            //SaveSystem.SaveSingleton.Instance.Load();
+
         }
 
         public static void CompareScore()

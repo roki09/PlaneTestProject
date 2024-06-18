@@ -47,6 +47,12 @@ public abstract class EnemisBase : MonoBehaviour
         if (collision.CompareTag("Edge"))
         {
             DestroyWitoutStats();
+            return;
+        }
+        else if (collision.TryGetComponent(out MainAirplane mainAirplane))
+        {
+            mainAirplane.TakingDamage(1);
+            Destroy(this);
         }
     }
 }

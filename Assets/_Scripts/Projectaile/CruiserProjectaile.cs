@@ -12,8 +12,11 @@ public class CruiserProjectaile : ProjectaileBase
     private void OnEnable()
     {
         mainAirplane = FindAnyObjectByType<MainAirplane>();
-        airplanePosition[0] = mainAirplane.gameObject.transform.position.x;
-        airplanePosition[1] = mainAirplane.gameObject.transform.position.y;
+        if (mainAirplane != null)
+        {
+            airplanePosition[0] = mainAirplane.gameObject.transform.position.x;
+            airplanePosition[1] = mainAirplane.gameObject.transform.position.y;
+        }
 
     }
 

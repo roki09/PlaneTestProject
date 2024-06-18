@@ -18,7 +18,6 @@ namespace Architecture
             enemyStats = new List<EnemyStats>();
             this.score = PlayerPrefs.GetInt(KEY, 0);
             this.bestScore = PlayerPrefs.GetInt(TOPSCORE, 0);
-            //SaveSystem.SaveSingleton.Instance.Load();
         }
 
 

@@ -32,10 +32,13 @@ namespace Gameplay.Projectaile.Pool
 
         private void CreateProjectaile()
         {
-            var projectaile = pool.GetFreeElement();
             if (player != null)
+            {
+                var projectaile = pool.GetFreeElement();
                 projectaile.transform.position = player.transform.position;
-            projectaile.gameObject.SetActive(true);
+                projectaile.gameObject.SetActive(true);
+
+            }
         }
 
         private IEnumerator Timer()

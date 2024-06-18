@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class ArchTester : MonoBehaviour
 {
     public MainAirplane player;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject pauseButton;
 
     private void Start()
     {
@@ -50,6 +51,8 @@ public class ArchTester : MonoBehaviour
 
     public void EndGame()
     {
+        //Architecture.SaveSystem.SaveSingleton.Instance.Save();
         canvas.gameObject.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
     }
 }
