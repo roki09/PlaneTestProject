@@ -43,7 +43,7 @@ namespace Architecture
 
         public void AddEnemyStats(object sender, EnemyStats exampleStats)
         {
-            if(enemyStats == null)
+            if (enemyStats == null)
             {
                 enemyStats.Add(exampleStats);
                 return;
@@ -55,7 +55,7 @@ namespace Architecture
                 {
                     stats.value++;
                     return;
-                }       
+                }
             }
 
             enemyStats.Add(exampleStats);
@@ -63,9 +63,13 @@ namespace Architecture
 
         public void AddEnemyStatsOnLoad(List<EnemyStats> enemyStatsExample)
         {
+            if (enemyStatsExample == null)
+                return;
+
             foreach (var stats in enemyStatsExample)
             {
-                enemyStats.Add(stats);
+                if (stats != null)
+                    enemyStats.Add(stats);
             }
         }
 

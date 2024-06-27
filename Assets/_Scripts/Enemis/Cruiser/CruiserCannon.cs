@@ -5,34 +5,24 @@ using UnityEngine;
 
 public class CruiserCannon : MonoBehaviour
 {
-    [SerializeField] private Transform airplane;
-    [SerializeField] private Transform cruiser;
-    private Quaternion quaternion;
+    [SerializeField] MainAirplane player;
 
-    private void Awake()
+    private void OnEnable()
     {
-        quaternion = this.transform.rotation;
+        player = FindAnyObjectByType<MainAirplane>();
     }
 
-    //private void FixedUpdate()
-    //{
-    //    RotateToAirplane();
-    //}
-
-    private float CanculateIndex()
+    private void Update()
     {
-        return -45 * airplane.position.x / this.transform.position.x;
+        Turn();
     }
-    private void RotateToAirplane()
+
+
+    private void Turn()
     {
-        var index = CanculateIndex();
-
-        transform.rotation = Quaternion.Euler(quaternion.x, quaternion.y, index);
-
-        if (transform.rotation.z >= 0)
-            transform.rotation = Quaternion.Euler(quaternion.x, quaternion.y, 0);
-        else if (transform.rotation.z <= -90)
-            transform.rotation = Quaternion.Euler(quaternion.x, quaternion.y, -90);
-
+        var direction = player.transform.position - transform.position;
+        var angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+
 }

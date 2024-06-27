@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Architecture.SaveSystem
         {
             if (PlayerPrefs.HasKey(key))
             {
-                string loadedString = PlayerPrefs.GetString(key);
+                var loadedString = PlayerPrefs.GetString(key);
                 return JsonUtility.FromJson<T>(loadedString);
             }
             else { return new T(); }

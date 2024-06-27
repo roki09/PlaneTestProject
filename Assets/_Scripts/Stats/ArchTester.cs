@@ -51,7 +51,7 @@ public class ArchTester : MonoBehaviour
 
     public void EndGame()
     {
-        //Architecture.SaveSystem.SaveSingleton.Instance.Save();
+        Architecture.SaveSystem.SaveSingleton.Instance.Save();
         canvas.gameObject.SetActive(true);
         pauseButton.gameObject.SetActive(false);
     }

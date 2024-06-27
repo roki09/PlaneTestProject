@@ -10,6 +10,10 @@ namespace Gameplay.Enemis
 {
     public class Cruiser : EnemisBase
     {
+        private void OnEnable()
+        {
+            this.speed = Random.Range(0.5f, 1.5f);
+        }
         private void Update()
         {
             Move();

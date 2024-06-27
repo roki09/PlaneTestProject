@@ -47,7 +47,7 @@ namespace Architecture
 
             OnStatsInializeEvent?.Invoke();
 
-            //SaveSystem.SaveSingleton.Instance.Load();
+            SaveSystem.SaveSingleton.Instance.Load();
 
         }
 
@@ -80,7 +80,7 @@ namespace Architecture
         {
             if (!isInitialized)
             {
-                throw new System.Exception("Bank is not initialize yet");
+                throw new System.Exception("Stats is not initialize yet");
             }
         }
     }

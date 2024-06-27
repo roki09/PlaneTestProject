@@ -14,7 +14,7 @@ namespace Architecture.SaveSystem
 
         private void Awake()
         {
-            if (Instance = null)
+            if (Instance == null)
             {
                 Instance = this;
                 DontDestroyOnLoad(this);
@@ -43,10 +43,12 @@ namespace Architecture.SaveSystem
             var data = new SaveSystem.PlayerPrefsData()
             {
                 enemyStats = Stats.enemyStats,
+                
                 bestScore = Stats.bestScore,
             };
             return data;
         }
+
 
 
     }

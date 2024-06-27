@@ -9,8 +9,15 @@ public abstract class EnemisBase : MonoBehaviour
 {
     [SerializeField] protected int health;
     [SerializeField] protected int bounty;
+    [SerializeField] protected float speed;
+    [SerializeField] protected GameObject deathAnimationObject;
 
     [SerializeField] protected EnemyStats enemyStats;
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
     public void DestroyEnemis()
     {
@@ -31,7 +38,8 @@ public abstract class EnemisBase : MonoBehaviour
 
         if (this.health <= 0)
         {
-            DestroyEnemis();
+            deathAnimationObject.SetActive(true);
+            StartCoroutine(DeadTimer());
         }
     }
 
@@ -52,7 +60,13 @@ public abstract class EnemisBase : MonoBehaviour
         else if (collision.TryGetComponent(out MainAirplane mainAirplane))
         {
             mainAirplane.TakingDamage(1);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
+    }
+
+    private IEnumerator DeadTimer()
+    {
+        yield return new WaitForSeconds(1);
+        DestroyEnemis();
     }
 }
