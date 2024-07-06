@@ -10,15 +10,22 @@ In this game I use my own art:
 
  ![projectaileTest](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/Art.png?raw=true)
 
- ![projectaileTest](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/projectaileTest.gif?raw=true)
+ ## This game uses a particle system
 
-  ![Particle](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/particleTest.gif?raw=true)
+ ![projectaileTest](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/gametest.gif?raw=true)
+
+ ![Particle](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/particleTest.gif?raw=true)
+
+## Added post-battle statistics that will be saved between sessions in the future
+
+ ![stats](https://github.com/roki09/PlaneTestProject/blob/main/ForGit/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-07-06%20215618.png?raw=true)
+
 
 ## Current DevPlan
-  - [ ] Core mechanics
+  - [X] Core mechanics
   - [X] Movement
   - [ ] Battle
-    - [ ] Enemis
+    - [X] Enemis
     - [ ] Boss fight
   - [X] Сombat system
   - [X] Game art (in the process of creating new enemies and UI)
